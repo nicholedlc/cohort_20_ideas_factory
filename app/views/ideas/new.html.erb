@@ -1,0 +1,22 @@
+<div class="container">
+  <% session[:user_id] = nil %>
+  <%= form_for @idea do |f| %>
+    <% if @idea.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <% @idea.errors.full_messages.each do |message| %>
+          <div><%= message %>.</div>
+        <% end %>
+      </div>
+    <% end %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      </br>
+      <%= f.submit "Submit Idea", class: "btn btn-success" %>
+  <% end %>
+</div>
